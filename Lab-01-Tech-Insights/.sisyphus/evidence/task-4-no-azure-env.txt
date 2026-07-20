@@ -1,0 +1,6 @@
+No Azure/Foundry env vars remain in Lab-01-Tech-Insights/.env.example.
+Verified contents:
+## Tech Insight Workflow — gh-aw 配置
+OUTPUT_DIR=Lab-01-Tech-Insights/output
+SIGNALS_DIR=Lab-01-Tech-Insights/output/signals
+TIME_WINDOW_HOURS=24

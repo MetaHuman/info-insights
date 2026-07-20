@@ -1,0 +1,10 @@
+Workflow file: .github/workflows/tech-insight.md
+
+Trigger verification:
+- Manual trigger only: on.workflow_dispatch present
+- No schedule trigger present
+- No other trigger requirements introduced in frontmatter
+
+Trigger snippet:
+on:
+  workflow_dispatch:

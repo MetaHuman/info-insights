@@ -1,0 +1,3 @@
+Verified README.md contains:
+## Lab-02-Podcast（你将做什么）
+## Lab-03-GitHub-Copilot（你将做什么）

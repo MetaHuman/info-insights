@@ -1,0 +1,6 @@
+Verified preserved files:
+- Lab-01-Tech-Insights/generated/tech_insight_workflow/social_insight_tools.py
+- Lab-01-Tech-Insights/workflows/social_insight_workflow.yaml
+
+Created note:
+- Lab-01-Tech-Insights/generated/tech_insight_workflow/README.md

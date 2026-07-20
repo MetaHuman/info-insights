@@ -1,0 +1,4 @@
+mcp-scripts/tech_insight_tools.py: moved from generated/tech_insight_workflow/
+mcp-scripts/file_io_tool.py: moved from shared_tools/
+generated/tech_insight_workflow/tech_insight_tools.py: deleted
+shared_tools/file_io_tool.py: deleted

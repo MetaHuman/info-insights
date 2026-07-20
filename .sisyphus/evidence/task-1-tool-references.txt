@@ -1,0 +1,26 @@
+Workflow file: .github/workflows/tech-insight.md
+
+Frontmatter MCP scripts referenced:
+1. Lab-01-Tech-Insights/mcp-scripts/tech_read_source_list.py
+2. Lab-01-Tech-Insights/mcp-scripts/tech_fetch_all_to_disk.py
+3. Lab-01-Tech-Insights/mcp-scripts/tech_load_articles_from_disk.py
+4. Lab-01-Tech-Insights/mcp-scripts/tech_cluster_or_fallback.py
+5. Lab-01-Tech-Insights/mcp-scripts/tech_insight_or_fallback.py
+6. Lab-01-Tech-Insights/mcp-scripts/tech_render_report_or_fallback.py
+7. Lab-01-Tech-Insights/mcp-scripts/write_text_file.py
+
+Required tool names referenced in workflow body:
+- tech.read_source_list
+- tech.fetch_all_to_disk
+- tech.load_articles_from_disk
+- tech.cluster_or_fallback
+- tech.insight_or_fallback
+- tech.render_report_or_fallback
+
+Additional write tool usage referenced:
+- write_text_file
+
+Final delivery/commit behavior referenced:
+- write Lab-01-Tech-Insights/output/report.md
+- write frontend/report.md
+- commit frontend/report.md via safe-outputs mechanism

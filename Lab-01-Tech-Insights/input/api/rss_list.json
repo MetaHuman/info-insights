@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "CnEVPost",
+    "platform": "cnevpost",
+    "source": "rss",
+    "url": "https://cnevpost.com/feed/",
+    "signal_level": "S"
+  },
+  {
+    "id": 2,
+    "name": "CarNewsChina",
+    "platform": "carnewschina",
+    "source": "rss",
+    "url": "https://carnewschina.com/feed/",
+    "signal_level": "S"
+  },
+  {
+    "id": 3,
+    "name": "Pandaily",
+    "platform": "pandaily",
+    "source": "rss",
+    "url": "https://pandaily.com/feed/",
+    "signal_level": "A"
+  },
+  {
+    "id": 4,
+    "name": "Electrek",
+    "platform": "electrek",
+    "source": "rss",
+    "url": "https://electrek.co/feed/",
+    "signal_level": "A"
+  },
+  {
+    "id": 5,
+    "name": "InsideEVs",
+    "platform": "insideevs",
+    "source": "rss",
+    "url": "https://insideevs.com/rss/articles/all/",
+    "signal_level": "A"
+  },
+  {
+    "id": 6,
+    "name": "CleanTechnica",
+    "platform": "cleantechnica",
+    "source": "rss",
+    "url": "https://cleantechnica.com/feed/",
+    "signal_level": "A"
+  },
+  {
+    "id": 7,
+    "name": "The Driven",
+    "platform": "thedriven",
+    "source": "rss",
+    "url": "https://thedriven.io/feed/",
+    "signal_level": "B"
+  },
+  {
+    "id": 8,
+    "name": "The Verge Transportation",
+    "platform": "theverge-transport",
+    "source": "rss",
+    "url": "https://www.theverge.com/rss/transportation/index.xml",
+    "signal_level": "B"
+  },
+  {
+    "id": 9,
+    "name": "TechCrunch Transportation",
+    "platform": "techcrunch-transport",
+    "source": "rss",
+    "url": "https://techcrunch.com/category/transportation/feed/",
+    "signal_level": "B"
+  },
+  {
+    "id": 10,
+    "name": "Charged EVs",
+    "platform": "chargedevs",
+    "source": "rss",
+    "url": "https://chargedevs.com/feed/",
+    "signal_level": "B"
+  }
+]

@@ -1,0 +1,31 @@
+Workflow file: .github/workflows/tech-insight.md
+
+Frontmatter verification:
+- name: Tech Insight Workflow
+- on.workflow_dispatch present
+- permissions.contents: write
+- tools count: 7
+- engine: copilot
+- network: true
+
+Stage structure verification:
+- Stage 1: 抓取并装载原始信号
+- Stage 2: 聚类趋势与重点更新
+- Stage 3: 生成热点洞察
+- Stage 4: 生成并提交 Markdown 报告
+
+Embedded default config values:
+- source_list_path = Lab-01-Tech-Insights/input/api/rss_list.json
+- signals_dir = Lab-01-Tech-Insights/output/signals
+- output_dir = Lab-01-Tech-Insights/output
+- time_window_hours = 24
+- top_k = 12
+- max_items_per_source = 25
+- timeout_seconds = 15
+- max_chars = 200000
+
+Prompt port verification:
+- ClusteringPrompt copied in zh-CN block
+- InsightPrompt copied in zh-CN block
+- ReportPrompt copied in zh-CN block
+- Each stage includes fallback notice requirement: 如果工具提示使用了兜底逻辑，在输出中注明。

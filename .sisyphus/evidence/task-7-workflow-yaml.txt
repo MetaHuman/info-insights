@@ -1,0 +1,2 @@
+Lab-01-Tech-Insights/workflows/tech_insight_workflow.yaml: deleted
+Lab-01-Tech-Insights/workflows/social_insight_workflow.yaml: preserved

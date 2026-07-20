@@ -1,0 +1,2 @@
+python3 -m py_compile Lab-01-Tech-Insights/mcp-scripts/*.py: OK
+python3 -c 'import sys; sys.path.insert(0, "Lab-01-Tech-Insights/mcp-scripts"); import tech_insight_tools; print("OK")': OK

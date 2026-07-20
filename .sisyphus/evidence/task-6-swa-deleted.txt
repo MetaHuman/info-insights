@@ -1,0 +1,19 @@
+# Task 6: SWA Deletion Confirmation + GitHub Pages Creation
+# Date: 2026-04-07
+
+## SWA (Static Web Apps) Workflow Status
+- deploy_frontend_swa.yml: ALREADY DELETED in Task 5 (confirmed absent)
+- tech_insight_workflow.yml: DELETED in Task 6 (Azure CI referencing deleted files)
+
+## Files deleted by Task 6
+- .github/workflows/tech_insight_workflow.yml
+  Contained: azure/login@v2 OIDC, AZURE_CLIENT_ID/TENANT_ID/SUBSCRIPTION_ID,
+  python create_agents_from_workflow.py (deleted file), python run.py (deleted file)
+
+## GitHub Pages Workflow Created
+- .github/workflows/deploy-pages.yml
+  Triggers: push to main on Lab-01-Tech-Insights/frontend/** or frontend/report.md changes
+  Deploys: Lab-01-Tech-Insights/frontend/ to GitHub Pages
+  No Azure references, no OIDC secrets, no deleted file references
+
+## Verdict: PASS — Azure SWA workflows gone, GitHub Pages deployment in place

@@ -1,0 +1,11 @@
+DELETED Lab-01-Tech-Insights/generated/tech_insight_workflow/run.py
+DELETED Lab-01-Tech-Insights/generated/tech_insight_workflow/maf_declarative_runtime.py
+DELETED Lab-01-Tech-Insights/generated/tech_insight_workflow/create_agents_from_workflow.py
+DELETED Lab-01-Tech-Insights/generated/tech_insight_workflow/agent_id_map.json
+DELETED Lab-01-Tech-Insights/generated/tech_insight_workflow/agents.yaml
+DELETED Lab-01-Tech-Insights/generated/tech_insight_workflow/workflow.yaml
+DELETED Lab-01-Tech-Insights/scripts/setup_github_actions_oidc.sh
+DELETED Lab-01-Tech-Insights/scripts/setup_github_actions_oidc.ps1
+DELETED Lab-01-Tech-Insights/scripts/install_deps.sh
+DELETED Lab-01-Tech-Insights/scripts/install_deps.ps1
+DELETED .github/workflows/deploy_frontend_swa.yml

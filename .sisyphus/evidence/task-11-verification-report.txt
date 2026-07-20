@@ -1,0 +1,142 @@
+Task 11 Verification Report
+Repository: /home/haxu/GCR-AI-Tour-2026
+Date: 2026-04-07
+Mode: Read-only verification (report artifact generated as requested)
+
+Summary
+- PASS: Deleted Azure-specific files absent
+- PASS: gh-aw deliverable files present
+- PASS: Preserved tech/social/frontend files present
+- PASS: Python MCP scripts compile cleanly
+- PASS: tech_insight_tools import works from mcp-scripts/
+- PASS: requirements.txt cleaned of Azure/Foundry deps; core deps present
+- PASS: GitHub Actions workflow files contain no Azure/OIDC/Foundry refs
+- PASS: Lab-01 README and root README Lab-01 section are migration-clean
+- PASS: tech-insight workflow has 4 stages and substantial Chinese content
+- PASS: LSP diagnostics clean for Lab-01-Tech-Insights/mcp-scripts
+- FAIL: Azure reference scan returned 1 line
+- FAIL: workflow schedule string count check returned 1 (expected 0)
+- FAIL: workflow tool-reference count check returned 12 (expected 6)
+
+A. Azure Reference Scan
+Command:
+grep -ri "azure" Lab-01-Tech-Insights/ --include="*.py" --include="*.txt" --include="*.yaml" --include="*.yml" --include="*.json" --include="*.sh" --include="*.ps1" | grep -v "social_insight" | grep -v README | grep -v ".md"
+Result: FAIL
+Output:
+Lab-01-Tech-Insights/.sisyphus/evidence/task-4-no-azure-env.txt:No Azure/Foundry env vars remain in Lab-01-Tech-Insights/.env.example.
+Notes:
+- The only hit is an evidence .txt file under Lab-01-Tech-Insights/.sisyphus/evidence/.
+- This means the exact mandated grep did not return zero lines.
+
+B. Deleted Files — Must Be Absent
+Result: PASS
+Output:
+run.py DELETED OK
+maf_runtime DELETED OK
+create_agents DELETED OK
+workflow.yaml DELETED OK
+oidc.sh DELETED OK
+install_deps.sh DELETED OK
+deploy_swa DELETED OK
+old_ci.yml DELETED OK
+workflows/tech_insight_workflow.yaml DELETED OK
+
+C. New Files — Must Exist
+Result: PASS
+Output:
+gh-aw workflow OK
+deploy-pages OK
+tech_insight_tools in mcp-scripts OK
+tech_read_source_list OK
+tech_fetch_all_to_disk OK
+tech_load_articles OK
+tech_cluster OK
+tech_insight OK
+tech_render OK
+write_text_file OK
+
+D. Preserved Files — Must Still Exist
+Result: PASS
+Output:
+social_insight_tools PRESERVED OK
+social_insight_workflow PRESERVED OK
+rss_list.json PRESERVED OK
+frontend/index.html PRESERVED OK
+frontend/report.md PRESERVED OK
+
+E. Python Syntax Check
+Result: PASS
+Output:
+ALL PY_COMPILE OK
+
+F. Import Check
+Result: PASS
+Output:
+tech_insight_tools IMPORT OK
+
+G. Requirements Check
+Result: PASS
+Output:
+requirements.txt CLEAN OK
+httpx
+feedparser
+beautifulsoup4
+CORE DEPS PRESENT OK
+
+H. gh-aw Workflow Structure Check
+Sub-checks:
+1) Manual trigger present: PASS
+   Output:
+     workflow_dispatch:
+     manual trigger OK
+2) Schedule count is zero: FAIL
+   Output:
+     1
+     schedule check (should be 0)
+3) Tool reference count is 6: FAIL
+   Output:
+     12
+4) Chinese content threshold (>20 chars): PASS
+   Output:
+     Chinese chars in workflow: 948
+     Chinese content OK
+5) Stage count is 4: PASS
+   Output:
+     4
+Notes:
+- The workflow file has 4 `## 阶段` sections.
+- The exact grep-based tool-reference count command returned 12, not 6.
+
+I. GitHub Actions No Azure Check
+Result: PASS
+Output:
+CI WORKFLOWS CLEAN OK
+
+J. README Verification
+Result: PASS
+Output:
+Lab-01 README CLEAN OK
+Root README Lab-01 section OK
+
+Additional Verification
+LSP diagnostics: PASS
+Output:
+Directory: /home/haxu/GCR-AI-Tour-2026/Lab-01-Tech-Insights/mcp-scripts
+Extension: .py
+Files scanned: 9
+Files with errors: 0
+Total diagnostics: 0
+
+Expected Outcome Mapping
+- Zero Azure/Foundry refs in non-README Python/YAML/JSON/shell files under Lab-01-Tech-Insights/: PASS by intent, but the mandated grep command itself FAILS because it also includes *.txt and found a Lab-01 evidence file.
+- All Azure-specific files confirmed deleted: PASS
+- All gh-aw deliverable files confirmed present: PASS
+- All Python MCP scripts compile cleanly: PASS
+- Python import works from mcp-scripts directory: PASS
+- tech_insight_tools.py preserved (in mcp-scripts/): PASS
+- Social insight files preserved: PASS
+- gh-aw workflow has all 4 stages and 6 tool references: PARTIAL / exact command FAIL (4 stages PASS, grep count for tool references returned 12)
+- GitHub Actions workflows have no Azure CI references: PASS
+
+Final Verdict
+FAIL [A_azure_reference_scan_nonzero, H_schedule_count_returned_1, H_tool_reference_count_returned_12]

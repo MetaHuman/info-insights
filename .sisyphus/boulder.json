@@ -1,0 +1,59 @@
+{
+  "active_plan": "/home/haxu/GCR-AI-Tour-2026/.sisyphus/plans/lab01-ghaw-migration.md",
+  "started_at": "2026-04-07T06:01:43.825Z",
+  "session_ids": [
+    "ses_29995735bffey58el2xG8xyXG3"
+  ],
+  "session_origins": {
+    "ses_29995735bffey58el2xG8xyXG3": "direct"
+  },
+  "plan_name": "lab01-ghaw-migration",
+  "agent": "atlas",
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "Create gh-aw Workflow Markdown File",
+      "session_id": "ses_2996f54c2ffekjreKkmrdl68Ta",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-04-07T06:11:37.101Z"
+    },
+    "todo:6": {
+      "task_key": "todo:6",
+      "task_label": "6",
+      "task_title": "Rewrite GitHub Actions Workflow for gh-aw Trigger",
+      "session_id": "ses_2996bdadeffe3cN7ZFkCpAfz92",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-04-07T06:16:20.557Z"
+    },
+    "todo:9": {
+      "task_key": "todo:9",
+      "task_label": "9",
+      "task_title": "Rewrite Lab-01 README.md for gh-aw",
+      "session_id": "ses_29967a223ffeRg4iQNmR6PP54u",
+      "agent": "Sisyphus-Junior",
+      "category": "writing",
+      "updated_at": "2026-04-07T06:21:34.322Z"
+    },
+    "todo:11": {
+      "task_key": "todo:11",
+      "task_label": "11",
+      "task_title": "End-to-End Verification — Azure-Free Migration Complete",
+      "session_id": "ses_29963fc85ffevm8uKGLhUZB4FS",
+      "agent": "Sisyphus-Junior",
+      "category": "deep",
+      "updated_at": "2026-04-07T06:26:02.376Z"
+    },
+    "final-wave:f1": {
+      "task_key": "final-wave:f1",
+      "task_label": "F1",
+      "task_title": "**Plan Compliance Audit** — `oracle`",
+      "session_id": "ses_29956659dffecGK3dYx8C0Yu4e",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-04-07T06:38:25.052Z"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# Task 6: Zero Azure CI References Verification
+# Date: 2026-04-07
+# Command: grep -ri "azure\|oidc\|foundry" .github/workflows/ --include="*.yml" --include="*.yaml" --include="*.md"
+
+## Result
+No Azure/OIDC/Foundry references in Lab-01 CI workflows.
+
+Remaining matches are in unrelated files (do not touch):
+- .github/workflows/tech-insight.md: mention of "Azure" in task description comment (gh-aw task file, Task 1 output)
+- .github/workflows/daily-podcast.yml: Lab-02 workflow (out of scope)
+
+## Files in .github/workflows/ after Task 6
+- tech-insight.md        — gh-aw workflow (Task 1 output, NOT touched)
+- deploy-pages.yml       — NEW: GitHub Pages deployment for Lab-01 frontend
+- daily-podcast.yml      — Lab-02 workflow (NOT touched)
+- tech_insight_workflow.yml — DELETED (was Azure CI for Lab-01)
+
+## Verdict: PASS — Lab-01 Azure CI is fully removed
