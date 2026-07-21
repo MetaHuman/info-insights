@@ -1,6 +1,0 @@
-Kept dependencies:
-- python-dotenv
-- PyYAML
-- httpx
-- feedparser
-- beautifulsoup4

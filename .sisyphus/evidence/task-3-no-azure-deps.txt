@@ -1,3 +1,0 @@
-grep -i "azure" Lab-01-Tech-Insights/requirements.txt
-
-Result: no matches

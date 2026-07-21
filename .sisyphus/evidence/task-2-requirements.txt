@@ -1,3 +1,0 @@
-mcp-scripts directory and wrapper files created
-syntax check passed with python3 -m py_compile
-requirements.txt verified: httpx, feedparser, beautifulsoup4, PyYAML, python-dotenv
