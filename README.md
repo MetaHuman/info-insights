@@ -67,6 +67,34 @@ gh secret set DEEPSEEK_API_KEY
 
 不要将真实 API Key 写入代码、`.env.example` 或任何 Git 提交。
 
+## 允许 Actions 自动创建 Pull Request
+
+EV Insight 工作流通过 safe-outputs 自动创建报告 PR。首次运行前，需要在仓库中开启对应权限：
+
+1. 打开仓库的 **Settings**。
+2. 选择 **Actions → General**。
+3. 滚动到 **Workflow permissions**。
+4. 勾选 **Allow GitHub Actions to create and approve pull requests**。
+5. 点击 **Save**。
+
+也可以通过 GitHub CLI 设置：
+
+```bash
+gh api \
+  --method PUT \
+  repos/OWNER/REPO/actions/permissions/workflow \
+  -f default_workflow_permissions=read \
+  -F can_approve_pull_request_reviews=true
+```
+
+将 `OWNER/REPO` 替换为实际仓库，例如 `MetaHuman/info-insights`。验证设置：
+
+```bash
+gh api repos/OWNER/REPO/actions/permissions/workflow
+```
+
+返回结果中的 `can_approve_pull_request_reviews` 应为 `true`。如果网页选项不可用，说明该设置受组织或企业级 Actions 策略限制，需要由上级管理员开启。
+
 ## 编译和运行工作流
 
 在仓库根目录执行：

@@ -241,7 +241,7 @@ on:
 ```bash
 gh workflow run "Deploy GitHub Pages"
 ```
-4. 访问 `https://<你的用户名>.github.io/GCR-AI-Tour-2026/` 查看在线版报告。
+4. 访问 `https://<你的用户名>.github.io/info-insights/` 查看在线版报告。
 
 > 💡 完整发布链路：EV Insight 工作流完成 → safe-outputs 创建 PR → 合并 PR → `frontend/report.md` 变更触发 deploy-pages → GitHub Pages 自动更新。
 

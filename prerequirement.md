@@ -8,21 +8,17 @@
 |------|------|----------|
 | GitHub | 托管 gh-aw 工作流与 GitHub Actions | Lab-01 |
 | DeepSeek（含 API 余额） | DeepSeek API Key 与模型调用 | Lab-01 |
-| GitHub（含 Copilot 订阅） | Copilot Chat、Copilot SDK | Lab-03 |
-| Azure（含 AI Projects 订阅） | 播客生成 Agent | Lab-02 |
 
 ## 软件
 
 | 软件 | 最低版本 | 涉及 Lab | 安装 |
 |------|---------|----------|------|
 | Git | 2.x | 全部 | https://git-scm.com |
-| GitHub CLI (`gh`) | 2.x | Lab-01 | https://cli.github.com |
+| GitHub CLI (`gh`) | 2.x | 全部 | https://cli.github.com |
 | gh-aw 扩展 | latest | Lab-01 | `gh extension install github/gh-aw` |
-| Python | 3.11+ | Lab-01, Lab-02 | https://www.python.org |
-| Node.js | 24+ | Lab-03 | https://nodejs.org |
+| Python | 3.11+ | 全部 | https://www.python.org |
+| Node.js | 24+ | 全部 | https://nodejs.org |
 | VS Code | latest | 全部（推荐） | https://code.visualstudio.com |
-| VS Code GitHub Copilot 扩展 | latest | Lab-03 | VS Code 扩展市场搜索 `GitHub Copilot` |
-| Azure CLI (`az`) | 2.x | Lab-02 | https://learn.microsoft.com/cli/azure/install-azure-cli |
 
 ## 快速验证
 
@@ -33,5 +29,4 @@ gh aw --version        # 已安装即可
 python3 --version      # >= 3.11
 node --version         # >= 24
 code --version         # 已安装即可
-az --version           # >= 2.x（仅 Lab-02）
 ```
