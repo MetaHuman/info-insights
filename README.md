@@ -1,96 +1,107 @@
-# GCR-AI-Tour-2026
+# EV Tech Insights
 
-本仓库包含多个可运行 Lab，当前主要内容如下：
+基于 GitHub Agentic Workflows 与 DeepSeek API 的电动车行业洞察流水线。
 
-- `Lab-01-Tech-Insights/`：基于新闻源的技术动态聚合与洞察 Lab
-- `Lab-02-Podcast/`：基于 GitHub Copilot 与 Microsoft Agent Framework 的自动化播客生成 Lab
-- `Lab-03-GitHub-Copilot/`：围绕 GitHub Copilot 与 Copilot SDK 的 PPT 生成 Lab
+项目从多个 EV 行业 RSS 信号源抓取内容，完成热点聚类、市场洞察和 Markdown 报告生成，并可通过 GitHub Pages 展示最新报告。
 
-## Lab-01-Tech-Insights（你将做什么）
+## 工作流程
 
-这是一个基于新闻源的「技术动态聚合与洞察」Lab：抓取多源更新 → 归一为信号 → 聚类热点 → 生成洞察与 Markdown 报告。
+```text
+RSS 信号源
+  → 抓取与清洗
+  → DeepSeek 热点聚类
+  → DeepSeek 洞察生成
+  → Markdown 报告
+  → Pull Request
+  → GitHub Pages
+```
 
-你将得到：
-- `report.md`：一份可阅读的技术洞察报告（中文）
-- `raw_signals.json` / `clusters/hotspots.json` / `insights/insights.json`：可回放的中间产物（便于调试与复现实验）
+AI 模型使用 `deepseek-v4-flash`。工作流通过 gh-aw 的 BYOK 配置调用 DeepSeek OpenAI 兼容接口，不要求 GitHub Copilot 订阅。
 
-- 入口文档：`Lab-01-Tech-Insights/README.md`
-- 工作流文件：`.github/workflows/tech-insight.md`
+## 项目结构
 
-最短触发路径（手动触发）：
+```text
+.
+├── .github/workflows/
+│   ├── tech-insight.md          # gh-aw 工作流源文件
+│   ├── tech-insight.lock.yml    # 编译后的 GitHub Actions 工作流
+│   └── deploy-pages.yml         # GitHub Pages 部署
+└── Lab-01-Tech-Insights/
+    ├── input/api/               # RSS 数据源配置
+    ├── mcp-scripts/             # 抓取、聚类、洞察与报告工具
+    ├── output/                  # 流水线输出
+    ├── frontend/                # 报告展示页面
+    ├── run_local_pipeline.py    # 本地 fallback 诊断脚本
+    └── README.md                # 完整实验教程
+```
 
-先在仓库 Actions Secrets 中添加 `DEEPSEEK_API_KEY`，然后执行：
+## 环境要求
+
+- GitHub 账号
+- DeepSeek API Key，且账号具有可用余额
+- GitHub CLI `gh`
+- gh-aw 扩展
+- Python 3.10+
+
+安装并检查 gh-aw：
 
 ```bash
-# 编译 gh-aw 工作流（需要 gh-aw 扩展）
+gh extension install github/gh-aw
+gh aw --version
+```
+
+## 配置 DeepSeek API Key
+
+在 GitHub 仓库的 **Settings → Secrets and variables → Actions** 中添加 Repository Secret：
+
+```text
+Name:  DEEPSEEK_API_KEY
+Value: 你的 DeepSeek API Key
+```
+
+也可以通过 GitHub CLI 设置：
+
+```bash
+gh secret set DEEPSEEK_API_KEY
+```
+
+不要将真实 API Key 写入代码、`.env.example` 或任何 Git 提交。
+
+## 编译和运行工作流
+
+在仓库根目录执行：
+
+```bash
 gh aw compile .github/workflows/tech-insight.md
-
-# 在 GitHub Actions UI 中手动触发，或：
-gh workflow run tech-insight
+gh workflow run "EV Insight Workflow"
 ```
 
-> 说明：`.github/workflows` 在仓库根目录（GitHub Actions 规范要求）。报告会自动部署到 GitHub Pages。
+也可以进入 GitHub 仓库的 **Actions** 页面，选择 **EV Insight Workflow** 后手动运行。
 
-## Lab-02-Podcast（你将做什么）
+工作流完成后会创建包含最新报告的 Pull Request。主要输出包括：
 
-这是一个基于 GitHub Copilot 与 Microsoft Agent Framework (MAF) 的「自动化播客生成」Lab：通过 MAF Workflow 编排多个 Agent，将话题列表自动转换为播客内容，并每日定时触发、提交结果。
+- `Lab-01-Tech-Insights/output/raw_signals.json`
+- `Lab-01-Tech-Insights/output/clusters/hotspots.json`
+- `Lab-01-Tech-Insights/output/insights/insights.json`
+- `Lab-01-Tech-Insights/output/report.md`
+- `Lab-01-Tech-Insights/frontend/report.md`
 
-你将体验：
-- 使用 GitHub Copilot 作为 LLM 提供方，结合 MAF Workflow 编排三个 Agent 串联生成播客对话内容
-- 通过 GitHub Actions 实现每日自动调度与内容发布
-- 管理话题队列（`topic/title.txt`），系统每次处理一个话题
+## 本地诊断
 
-你将得到：
-- `podcast/` 目录下生成的播客内容文件
-- 一套可本地运行也可托管于 GitHub Actions 的完整自动化流程
-
-- 入口文档：`Lab-02-Podcast/README.md`
-- 本地运行：先 `cd Lab-02-Podcast`，安装依赖后执行：
+本地脚本不调用 DeepSeek，而是使用确定性 fallback 验证 Python 工具链：
 
 ```bash
-cd Lab-02-Podcast
-pip install -r requirements.txt --pre
-python podcast_workflow.py -t "你的播客话题"
+python Lab-01-Tech-Insights/run_local_pipeline.py
 ```
 
-### 通过 GitHub Actions 触发
-
-如果你希望通过 GitHub Actions 自动运行播客生成工作流，请按以下步骤操作：
-
-1. **Fork 本仓库**到你自己的 GitHub 账号下
-2. **创建 Fine-grained Personal Access Token**：
-   - 前往 [GitHub Personal Access Tokens](https://github.com/settings/personal-access-tokens) 页面
-   - 点击 **Generate new token**，选择 **Fine-grained personal access tokens**
-   - 在权限设置中，添加 **Copilot** → **Copilot requests** 权限（Read and Write）
-   - 生成并复制 Token
-3. **添加 Repository Secret**：
-   - 进入你 Fork 后的仓库，打开 **Settings** → **Secrets and variables** → **Actions**
-   - 点击 **New repository secret**
-   - Name 填写 `COPILOT_GITHUB_TOKEN`，Value 粘贴上一步生成的 Token
-4. 在 **Actions** 页面手动触发 `Daily Podcast Generator` 工作流，或等待每日定时调度
-
-## Lab-03-GitHub-Copilot（你将做什么）
-
-这是一个用于学习 GitHub Copilot 与 Copilot SDK 的 Lab，聚焦“把网页内容生成为 PowerPoint”。
-
-你将体验两个场景：
-- 在 VS Code 聊天窗口中，通过自然语言触发 `url2ppt` 和 `pptx` skill，把单个网页 URL 直接转换为 PPT
-- 在 Next.js Web 应用中，由前端发起请求、后端通过 Copilot SDK 生成 PPT，并将进度流式返回给页面
-
-你将得到：
-- 一份由网页内容整理生成的 `.pptx` 演示文稿
-- 一个可本地运行的 Copilot SDK 示例 Web 应用
-
-- 入口文档：`Lab-03-GitHub-Copilot/README.md`
-- 本地运行：先 `cd Lab-03-GitHub-Copilot`，复制 `.env.example` 为 `.env` 并填写 `COPILOT_GITHUB_TOKEN`，然后执行 `npm install` 和 `npm run dev`
-- 默认访问地址：`http://localhost:3000`
-
-最短本地启动：
+预览前端报告：
 
 ```bash
-cd Lab-03-GitHub-Copilot
-cp .env.example .env
-# 填写 COPILOT_GITHUB_TOKEN 后继续
-npm install
-npm run dev
+python -m http.server 8000 --directory Lab-01-Tech-Insights/frontend
 ```
+
+然后访问 `http://localhost:8000`。
+
+## 更多说明
+
+完整实验步骤、工作流阶段与故障排查请参阅 [Lab-01-Tech-Insights/README.md](Lab-01-Tech-Insights/README.md)。
