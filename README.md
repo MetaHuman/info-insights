@@ -16,7 +16,7 @@ RSS 信号源
   → GitHub Pages
 ```
 
-AI 模型使用 `deepseek-v4-flash`。工作流通过 gh-aw 的 BYOK 配置调用 DeepSeek OpenAI 兼容接口，不要求 GitHub Copilot 订阅。
+AI 模型使用 `deepseek-v4-flash`。工作流通过 gh-aw 的 BYOK （Bring Your Own Key 自带密钥）配置调用 DeepSeek OpenAI 兼容接口，不要求 GitHub Copilot 订阅。
 
 ## 项目结构
 

@@ -42,18 +42,18 @@ GitHub Pages (在线查看)
 ### 步骤
 
 1. Fork 本仓库
-   - 打开 `https://github.com/GitHub-GCR-Cloud-Solution-Architect/GCR-AI-Tour-2026`
+   - 打开 `https://github.com/MetaHuman/info-insights.git`
    - 点击右上角 **Fork** 按钮
    - 保留默认设置，点击 **Create fork**
    - 等待 Fork 完成
 
 2. Clone 到本地
 ```bash
-git clone https://github.com/<你的用户名>/GCR-AI-Tour-2026.git
-cd GCR-AI-Tour-2026
+git clone https://github.com/<你的用户名>/info-insights.git
+cd info-insights
 ```
 
-3. 安装 GitHub CLI
+3. 安装 GitHub CLI （如已安装可跳过）
 ```bash
 # macOS
 brew install gh
@@ -65,7 +65,7 @@ sudo apt install gh
 winget install GitHub.cli
 ```
 
-4. 登录 GitHub CLI
+4. 登录 GitHub CLI（如已登录可跳过）
 ```bash
 gh auth login
 # 选择 GitHub.com → HTTPS → 按提示完成浏览器认证
@@ -152,7 +152,7 @@ gh secret set DEEPSEEK_API_KEY
 
 ### 步骤 3: 编译 gh-aw 工作流
 ```bash
-cd GCR-AI-Tour-2026
+cd info-insights
 gh aw compile .github/workflows/tech-insight.md
 ```
 - 这会在同目录生成 `tech-insight.lock.yml`，即编译后的 GitHub Actions YAML 文件。
@@ -263,7 +263,7 @@ gh workflow run "Deploy GitHub Pages"
 
 ## 附录 A: 目录结构参考
 ```text
-GCR-AI-Tour-2026/
+info-insights/
 ├── .github/workflows/
 │   ├── tech-insight.md           # gh-aw 工作流定义
 │   ├── tech-insight.lock.yml     # 编译后的 Actions YAML

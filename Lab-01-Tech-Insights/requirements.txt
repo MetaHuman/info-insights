@@ -1,4 +1,4 @@
-# Tech Insight pipeline dependencies
+# Info Insight pipeline dependencies
 python-dotenv
 PyYAML
 httpx
