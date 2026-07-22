@@ -256,6 +256,8 @@ gh workflow run "Deploy GitHub Pages"
 
 延伸探索：
 - 尝试把 `engine.model` 切换为 `deepseek-v4-pro`，比较报告质量与成本。
+- 尝试改进 report 的前端样式，或者添加新的数据源。
+- 尝试抓取其他主题相关的 RSS 源，例如 AI、自动驾驶、智能座舱等。
 - 添加 safe-outputs 自动创建 Issue。
 - 探索更多 gh-aw 设计模式：https://github.github.com/gh-aw/
 
